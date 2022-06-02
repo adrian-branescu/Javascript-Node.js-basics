@@ -1,3 +1,6 @@
 # NPM related
 node_modules
 package-lock.json
+
+# notebook related
+.ipynb_checkpoints
