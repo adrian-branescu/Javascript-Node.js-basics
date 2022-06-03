@@ -4,3 +4,4 @@ package-lock.json
 
 # notebook related
 .ipynb_checkpoints
+lab/12-async-example-metadata.json
