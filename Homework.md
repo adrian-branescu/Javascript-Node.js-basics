@@ -33,5 +33,5 @@ In this situations you should through an error.
 You should use mocha and chai to test your implementation. <br>
 You should test the errors mentioned above, and also the following situations:
  - the cashier should empty the shoppingCart of the customer.
- - the cashier should update the totalSales property with the total sum paid by each customer (so she doesn't steal money).
+ - the cashier should update the totalSales property with the total sum paid by each customer (so she doesn't steal money). <br>
 You are encouraged to test any other situation that you find relevant.
