@@ -1,17 +1,24 @@
 {
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  },
   "name": "13-npm",
+  "description": "## Lab environment",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "classes.js",
   "scripts": {
     "test": "mocha -bdd test.js"
   },
-  "dependencies": {
-    "mocha": "^8.4.0",
-    "chai": "^4.3.4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valentin-popov/Javascript-Node.js-basics.git"
   },
-  "type": "module",
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/valentin-popov/Javascript-Node.js-basics/issues"
+  },
+  "homepage": "https://github.com/valentin-popov/Javascript-Node.js-basics#readme"
 }
