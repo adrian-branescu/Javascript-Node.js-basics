@@ -135,6 +135,7 @@ export class Cashier extends Person {
         // check if the customer affords the cart
         if(customer.money >= total) {
             customer.money = customer.money - total;
+            this.totalSales = this.totalSales + total;
             console.log("purchase done");
             customer.shoppingCart.splice(0,customer.shoppingCart.length);
         } else {
