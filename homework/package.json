@@ -1,0 +1,16 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "homework.js",
+  "scripts": {
+    "test": "mocha -bdd test.js"
+  },
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC"
+}
