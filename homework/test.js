@@ -65,7 +65,8 @@ describe('Cashier tests', () => {
 
             cashier.scanAndCash(customer);
 
-            expect(customer.shoppingCart.length).to.be.eq(0);
+            const shoppingCartNumOfItems = customer.getShoppingCartNumOfItems();
+            expect(shoppingCartNumOfItems).to.be.eq(0);
         });
 
     it('Cashier should update the totalSales property with the total sum paid' +
@@ -82,10 +83,7 @@ describe('Cashier tests', () => {
             customer.addToCart(standingDesk);
             customer.addToCart(woodenChair);
 
-            let amountDue = 0;
-            customer.shoppingCart.forEach(product => {
-                amountDue += product.price;
-            });
+            const amountDue = customer.amountDue;
 
             expect(cashier.totalSales).to.be.eq(0);
 

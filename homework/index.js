@@ -51,24 +51,26 @@ class Person {
 class Customer extends Person {
     #money;
     #shoppingCart;
+    #amountDue;
 
     constructor({ name = 'unknown', money }) {
         super(name);
 
         this.#money = money;
         this.#shoppingCart = [];
+        this.#amountDue = 0;
     }
 
     get money() {
         return this.#money;
     }
 
-    get shoppingCart() {
-        return this.#shoppingCart;
-    }
-
     set money(money) {
         this.#money = money;
+    }
+
+    get amountDue() {
+        return this.#amountDue;
     }
 
     addToCart(product) {
@@ -84,6 +86,7 @@ class Customer extends Person {
         }
 
         this.#shoppingCart.push(product);
+        this.#amountDue += product.price;
     }
 
     removeFromCart(product) {
@@ -103,6 +106,28 @@ class Customer extends Person {
         }
 
         this.#shoppingCart.splice(cartElementIndex, 1);
+        this.#amountDue -= product.price;
+    }
+
+    getShoppingCartNumOfItems() {
+        return this.#shoppingCart.length;
+    }
+
+    checkout() {
+        if (this.#amountDue > this.#money) {
+            throw new ShoppingMarketError({
+                code: ShoppingMarketError.ERROR_CODE.INSUFFICIENT_FUNDS,
+                data: { amountDue: this.#amountDue, customer: this }
+            });
+        }
+
+        const amountPaid = this.#amountDue;
+
+        this.#money -= this.#amountDue;
+        this.#amountDue = 0;
+        this.#shoppingCart.length = 0;
+
+        return amountPaid;
     }
 }
 
@@ -124,20 +149,8 @@ class Cashier extends Person {
             throw new TypeError('customer must be a Customer');
         }
 
-        let amountDue = 0;
-        customer.shoppingCart.forEach(product => amountDue += product.price);
-
-        if (amountDue > customer.money) {
-            throw new ShoppingMarketError({
-                code: ShoppingMarketError.ERROR_CODE.INSUFFICIENT_FUNDS,
-                data: { amountDue, customer }
-            });
-        }
-
-        customer.money -= amountDue;
-        customer.shoppingCart.length = 0;
-
-        this.#totalSales += amountDue;
+        const amountPaid = customer.checkout();
+        this.#totalSales += amountPaid;
     }
 }
 
