@@ -65,7 +65,7 @@ describe('Cashier tests', () => {
 
             cashier.scanAndCash(customer);
 
-            expect(customer.shoppingCart.length === 0).to.be.true;
+            expect(customer.shoppingCart.length).to.be.eq(0);
         });
 
     it('Cashier should update the totalSales property with the total sum paid' +
@@ -87,10 +87,10 @@ describe('Cashier tests', () => {
                 amountDue += product.price;
             });
 
-            expect(cashier.totalSales === 0).to.be.true;
+            expect(cashier.totalSales).to.be.eq(0);
 
             cashier.scanAndCash(customer);
 
-            expect(amountDue - cashier.totalSales < 0.01).to.be.true;
+            expect(amountDue).to.be.lt(cashier.totalSales + 0.01);
         });
 });
