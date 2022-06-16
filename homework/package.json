@@ -1,0 +1,21 @@
+{
+    "name": "homework",
+    "version": "1.0.0",
+    "description": "Homework: JavaScript Basics",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha -bdd test.js"
+    },
+    "devDependencies": {
+        "chai": "^4.3.4",
+        "eslint": "^8.17.0",
+        "mocha": "^8.4.0"
+    },
+    "type": "module",
+    "keywords": [
+        "homework",
+        "Homework: JavaScript Basics"
+    ],
+    "author": "Andrei-Bogdan Ciobanu",
+    "license": "ISC"
+}
